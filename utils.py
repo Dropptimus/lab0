@@ -77,7 +77,7 @@ def train_model(model, criterion, optimizer, train_loader, val_loader, file_name
         # check if loss is smaller than before for each epoch, if so safe model
         if (epoch_validation_loss/val_size)<min_loss:
             torch.save(model, file_name)
-            min_loss = loss
+            min_loss = epoch_validation_loss/val_size
             
         # Save loss for plot
         training_loss.append(epoch_training_loss/(train_size))
